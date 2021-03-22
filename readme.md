@@ -1,4 +1,30 @@
-# Water My Plants API
+# Project 5 - Water My Plants
+**Timeline**: One week  
+**Tech**: Node.js, Express, SQLite3, Knex, Heroku    
+**Description**: An app to help you remember to water your plants.   
+**Contribution Type**: School Team Project - Relational database, REST API, authentication    
+**Status**: Completed  
+**Retrospective**: For my Unit 4 build week project at Lambda, I was responsible for developing the entire backend. I set up a relational database using Knex and SQLite3 and  hosted it on Heroku. I also set up a RESTful API with full CRUD operations and authentication.  
+
+Below is my favorite piece of code from this project. I wanted to return a user object that included all the user info including a plants field that held an array of plants owned by the user. This would save the front end from having to make a second API call to get the plants for the user. Async/await was always a weak spot of mine and I wasn't sure about Promise.resolve at all, but I learned more about each after figuring out this piece of code.
+
+```
+async function getUserById(id) {
+  let plants = await db("plants").where("user_id", id);
+  return db("users")
+    .where({ id })
+    .select("username", "id", "telephone")
+    .first()
+    .then(data => {
+      data.plants = plants;
+      return Promise.resolve(data);
+    });
+}
+
+```
+
+
+## Water My Plants API
 
 ## API URL
 
