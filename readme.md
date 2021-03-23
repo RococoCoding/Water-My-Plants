@@ -1,4 +1,4 @@
-# Project 5 - Water My Plants
+# Water My Plants
 **Timeline**: One week  
 **Tech**: Node.js, Express, SQLite3, Knex, Heroku    
 **Description**: An app to help you remember to water your plants.   
